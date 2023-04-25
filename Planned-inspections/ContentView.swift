@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var date = Date.now
+  @StateObject var viewModel: PlannedInspetionsViewModel = PlannedInspetionsViewModel()
+  @State var data: String = ""
   var body: some View {
     VStack{
       Text("Planned inspections")
         .font(.title2)
-      HStack {
-        DatePicker("Enter your birthday", selection: $date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .frame(maxHeight: 400)
+      Button("search") {
+        viewModel.getFromJson{ string in
+          data = string ?? ""
+        }
       }
-      Spacer()
-
+      ScrollView {
+        Text (data)
+      }
     }
   }
 }
