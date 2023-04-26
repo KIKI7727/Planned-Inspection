@@ -257,8 +257,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-<<<<<<< HEAD
-=======
 		8A7855A629F768A300D7E8AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,7 +264,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
->>>>>>> bc85aff (feat: load data from json)
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
