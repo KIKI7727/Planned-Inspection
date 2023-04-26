@@ -13,6 +13,10 @@
 		8A78559B29F768A200D7E8AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A78559A29F768A200D7E8AD /* Preview Assets.xcassets */; };
 		8A7855A529F768A300D7E8AD /* Planned_inspectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855A429F768A300D7E8AD /* Planned_inspectionsTests.swift */; };
 		8A7855C629F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C429F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift */; };
+		8A7855C829F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */; };
+		8A7855C929F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */; };
+		8A7855CC29F7D55E00D7E8AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */; };
+		8A7855CD29F7D55E00D7E8AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,8 @@
 		8A7855A029F768A300D7E8AD /* Planned-inspectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Planned-inspectionsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7855A429F768A300D7E8AD /* Planned_inspectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planned_inspectionsTests.swift; sourceTree = "<group>"; };
 		8A7855C429F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedInspetionsViewModel.swift; sourceTree = "<group>"; };
+		8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedInspetion.swift; sourceTree = "<group>"; };
+		8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 		8A78559229F768A100D7E8AD /* Planned-inspections */ = {
 			isa = PBXGroup;
 			children = (
+				8A7855CA29F7D4CA00D7E8AD /* Service */,
 				8A7855C129F79F3800D7E8AD /* Model */,
 				8A7855C029F79F1100D7E8AD /* ViewModel */,
 				8A7855BF29F79EF800D7E8AD /* View */,
@@ -120,8 +127,17 @@
 		8A7855C129F79F3800D7E8AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8A7855CA29F7D4CA00D7E8AD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7855CC29F7D55E00D7E8AD /* NetworkService.swift in Sources */,
+				8A7855C829F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */,
 				8A78559629F768A100D7E8AD /* ContentView.swift in Sources */,
 				8A7855C529F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */,
 				8A78559429F768A100D7E8AD /* Planned_inspectionsApp.swift in Sources */,
@@ -235,6 +253,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7855C629F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */,
+				8A7855C929F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */,
+				8A7855CD29F7D55E00D7E8AD /* NetworkService.swift in Sources */,
 				8A7855A529F768A300D7E8AD /* Planned_inspectionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

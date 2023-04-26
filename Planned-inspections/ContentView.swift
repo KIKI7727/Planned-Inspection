@@ -15,19 +15,19 @@ struct ContentView: View {
       Text("Planned inspections")
         .font(.title2)
       Button("search") {
-        viewModel.getFromJson{ string in
-          data = string ?? ""
-        }
+        viewModel.fetchData()
       }
-      ScrollView {
-        Text (data)
+      if viewModel.errorMessage != "" {
+       Text(viewModel.errorMessage)
+      } else {
+        Text (viewModel.data?.data.planner.dates[0].date.value ?? "Date")
       }
     }
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
