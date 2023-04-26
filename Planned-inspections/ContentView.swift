@@ -17,10 +17,12 @@ struct ContentView: View {
       Button("search") {
         viewModel.fetchData()
       }
-      if viewModel.errorMessage != "" {
-       Text(viewModel.errorMessage)
-      } else {
-        Text (viewModel.data?.data.planner.dates[0].date.value ?? "Date")
+      VStack {
+        if viewModel.errorMessage != "" {
+          Text(viewModel.errorMessage)
+        } else {
+          Text (viewModel.data?.data.planner.dates.first?.date.value ?? "Date")
+        }
       }
     }
   }

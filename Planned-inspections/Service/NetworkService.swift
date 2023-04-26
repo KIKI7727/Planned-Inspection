@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol DataService {
-  func fetchData<T: Decodable>(url: String) -> AnyPublisher<T, Error>
+  func fetchData(url: String) -> AnyPublisher<PlannedInspetion, NetworkError>
 }
 
 enum NetworkError: Error, CustomStringConvertible {
@@ -33,24 +33,23 @@ enum NetworkError: Error, CustomStringConvertible {
 }
 
 class NetworkService: DataService {
-  func fetchData<T: Decodable>(url: String) -> AnyPublisher <T, Error> {
+  func fetchData(url: String) -> AnyPublisher <PlannedInspetion, NetworkError> {
     return URLSession.shared.dataTaskPublisher(for: URL(string: url)!)
       .tryMap { response in
         guard let httpResponse = response.response as? HTTPURLResponse,
-              httpResponse.statusCode == 200
-        else {
+              httpResponse.statusCode == 200 else {
           throw URLError(.badServerResponse)
         }
         return response.data
       }
-      .decode(type: T.self, decoder: JSONDecoder())
+      .decode(type: PlannedInspetion.self, decoder: JSONDecoder())
       .mapError { error -> NetworkError in
         switch error {
         case is URLError:
           return .badNetwork(error: error)
         case is DecodingError:
           return .badDecode
-        default:
+        default:          
           return error as? NetworkError ?? .unknown
         }
       }
