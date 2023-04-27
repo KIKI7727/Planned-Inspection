@@ -12,11 +12,9 @@
 		8A78559829F768A200D7E8AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A78559729F768A200D7E8AD /* Assets.xcassets */; };
 		8A78559B29F768A200D7E8AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A78559A29F768A200D7E8AD /* Preview Assets.xcassets */; };
 		8A7855A529F768A300D7E8AD /* Planned_inspectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855A429F768A300D7E8AD /* Planned_inspectionsTests.swift */; };
-		8A7855C629F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C429F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift */; };
+		8A7855C529F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C429F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift */; };
 		8A7855C829F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */; };
-		8A7855C929F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */; };
 		8A7855CC29F7D55E00D7E8AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */; };
-		8A7855CD29F7D55E00D7E8AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
