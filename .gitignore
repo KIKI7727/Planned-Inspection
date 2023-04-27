@@ -83,7 +83,6 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 coverage_report/
-coverage_report/resources/
 
 # Code Injection
 #
