@@ -1,7 +1,9 @@
-## Current coverage for Planned-inspections.app is `92.68%`
+## Current coverage for Planned-inspections.app is `38.76%`
 Files changed | - | - 
 --- | --- | ---
-ContentView.swift | `90.91%` | :white_check_mark:
+NetworkService.swift | `0.00%` | :skull:
+PlannedInspetionsViewModel.swift | `16.67%` | :skull:
+ContentView.swift | `84.44%` | :white_check_mark:
 Planned_inspectionsApp.swift | `100.00%` | :white_check_mark:
 
 ---

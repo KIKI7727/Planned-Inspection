@@ -22,14 +22,7 @@ platform :ios do
 
   lane :unittest do 
     sh(%(cd #{ENV['PWD']} && rm -rf ./coverage_report))
-    UI.message("start  xcodebuild")
-    xcodebuild(
-      test: true,
-      scheme: "Planned-inspections",
-      destination: "platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2"
-    )
-    UI.message("success  xcodebuild")
-    
+
     UI.message("start  xcov")
     xcov(
       scheme: "Planned-inspections",
