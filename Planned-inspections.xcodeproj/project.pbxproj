@@ -15,6 +15,9 @@
 		8A7855C529F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C429F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift */; };
 		8A7855C829F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */; };
 		8A7855CC29F7D55E00D7E8AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */; };
+		8A7855D629FB923A00D7E8AD /* DatePickerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855D529FB923A00D7E8AD /* DatePickerCellView.swift */; };
+		8A7855D829FB926100D7E8AD /* ScrollDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855D729FB926100D7E8AD /* ScrollDatePickerView.swift */; };
+		8A7855DB29FB957200D7E8AD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855DA29FB957200D7E8AD /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		8A7855C429F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedInspetionsViewModel.swift; sourceTree = "<group>"; };
 		8A7855C729F7C1F100D7E8AD /* PlannedInspetion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedInspetion.swift; sourceTree = "<group>"; };
 		8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8A7855D529FB923A00D7E8AD /* DatePickerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCellView.swift; sourceTree = "<group>"; };
+		8A7855D729FB926100D7E8AD /* ScrollDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDatePickerView.swift; sourceTree = "<group>"; };
+		8A7855DA29FB957200D7E8AD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +85,11 @@
 		8A78559229F768A100D7E8AD /* Planned-inspections */ = {
 			isa = PBXGroup;
 			children = (
+				8A7855D929FB954E00D7E8AD /* Domain */,
 				8A7855CA29F7D4CA00D7E8AD /* Service */,
 				8A7855C129F79F3800D7E8AD /* Model */,
 				8A7855C029F79F1100D7E8AD /* ViewModel */,
 				8A7855BF29F79EF800D7E8AD /* View */,
-				8A78559329F768A100D7E8AD /* Planned_inspectionsApp.swift */,
 				8A78559729F768A200D7E8AD /* Assets.xcassets */,
 				8A78559929F768A200D7E8AD /* Preview Content */,
 			);
@@ -109,7 +115,9 @@
 		8A7855BF29F79EF800D7E8AD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A7855D429FB91B300D7E8AD /* ScrollDatePicker */,
 				8A78559529F768A100D7E8AD /* ContentView.swift */,
+				8A78559329F768A100D7E8AD /* Planned_inspectionsApp.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -136,6 +144,23 @@
 				8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8A7855D429FB91B300D7E8AD /* ScrollDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8A7855D529FB923A00D7E8AD /* DatePickerCellView.swift */,
+				8A7855D729FB926100D7E8AD /* ScrollDatePickerView.swift */,
+			);
+			name = ScrollDatePicker;
+			sourceTree = "<group>";
+		};
+		8A7855D929FB954E00D7E8AD /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8A7855DA29FB957200D7E8AD /* Repository.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7855D829FB926100D7E8AD /* ScrollDatePickerView.swift in Sources */,
+				8A7855D629FB923A00D7E8AD /* DatePickerCellView.swift in Sources */,
 				8A7855CC29F7D55E00D7E8AD /* NetworkService.swift in Sources */,
+				8A7855DB29FB957200D7E8AD /* Repository.swift in Sources */,
 				8A7855C829F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */,
 				8A78559629F768A100D7E8AD /* ContentView.swift in Sources */,
 				8A7855C529F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */,
@@ -250,9 +278,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A7855C629F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */,
-				8A7855C929F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */,
-				8A7855CD29F7D55E00D7E8AD /* NetworkService.swift in Sources */,
 				8A7855A529F768A300D7E8AD /* Planned_inspectionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
