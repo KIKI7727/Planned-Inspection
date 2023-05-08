@@ -5,8 +5,8 @@
 //  Created by cai dongyu on 2023/4/25.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 protocol DataService {
   func fetchData(url: String) -> AnyPublisher<PlannedInspetion, NetworkError>
@@ -17,12 +17,12 @@ enum NetworkError: Error, CustomStringConvertible {
   case badNetwork(error: Error)
   case badDecode
   case unknown
-  
+
   var description: String {
     switch self {
     case .badURL:
       return "无效的URL"
-    case .badNetwork(let error):
+    case let .badNetwork(error):
       return "网络错误: \(error.localizedDescription)_"
     case .badDecode:
       return "解码错误"
@@ -33,11 +33,15 @@ enum NetworkError: Error, CustomStringConvertible {
 }
 
 class NetworkService: DataService {
-  func fetchData(url: String) -> AnyPublisher <PlannedInspetion, NetworkError> {
+  static let shared: NetworkService = NetworkService()
+
+  private init() {}
+
+  func fetchData(url: String) -> AnyPublisher<PlannedInspetion, NetworkError> {
     return URLSession.shared.dataTaskPublisher(for: URL(string: url)!)
       .tryMap { response in
         guard let httpResponse = response.response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
+          httpResponse.statusCode == 200 else {
           throw URLError(.badServerResponse)
         }
         return response.data
@@ -49,7 +53,7 @@ class NetworkService: DataService {
           return .badNetwork(error: error)
         case is DecodingError:
           return .badDecode
-        default:          
+        default:
           return error as? NetworkError ?? .unknown
         }
       }

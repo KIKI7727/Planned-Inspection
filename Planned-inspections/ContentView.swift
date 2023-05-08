@@ -15,8 +15,18 @@ struct ContentView: View {
       Text("Planned inspections")
         .font(.title2)
       ScrollDatePickerView(viewModel: viewModel)
+
+      if viewModel.plannedData.subTitle == "0 inspection" {
+        Spacer()
+        Text("Looks like this day's completely free!")
+        Spacer()
+      } else {
+        InspectionView(data: viewModel.plannedData)
+          .padding()
+      }
       Spacer()
     }
+    .edgesIgnoringSafeArea(.bottom)
     .onAppear {
       viewModel.fetchData()
     }

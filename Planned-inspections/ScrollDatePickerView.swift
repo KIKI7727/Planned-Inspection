@@ -29,6 +29,7 @@ struct ScrollDatePickerView: View {
             .onTapGesture {
               if date.planned {
                 self.selectedIndex = index
+                viewModel.showInspectionsByDate(by: date.date)
               }
             }
           }
