@@ -5,31 +5,43 @@
 //  Created by cai dongyu on 2023/4/25.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-class PlannedInspetionsViewModel:  ObservableObject {
-
-  @Published var data: PlannedInspetion? = nil
+class PlannedInspetionsViewModel: ObservableObject {
+  @Published var dates: [DaysModel] = []
+  @Published var plannedData: PlannedInspections = PlannedInspections(title: "", subTitle: "", plannedCard: [])
   @Published var errorMessage: String = ""
   private var subscription: Set<AnyCancellable> = []
-  let service: DataService
+  @Published var plannedInspections: [PlannedInspections] = []
+  private let dataRespository: PlannedInspectionsRepositoryProtocol
 
-  init(service: DataService = NetworkService()) {
-    self.service = service
+  init(dataRespository: PlannedInspectionsRepositoryProtocol = DataRespository.shared) {
+    self.dataRespository = dataRespository
   }
 
   func fetchData() {
-    service.fetchData(url: "https://raw.githubusercontent.com/nancymi/planned-inspection-bff/main/planned_inspections.json")
+    dataRespository.getPlannedInspections()
       .receive(on: DispatchQueue.main)
-      .sink(receiveCompletion: { completion in
-        if case .failure(let error) = completion {
+      .sink { completion in
+        if case let .failure(error) = completion {
           self.errorMessage = error.description
         }
-      }, receiveValue: { [weak self] data in
-        self?.data = data
-      })
+      } receiveValue: { [weak self] data in
+        self?.dates = data.dates
+        self?.plannedInspections = data.plannedInspections
+      }
       .store(in: &subscription)
   }
-}
 
+  func showInspectionsByDate(by date: String) {
+    self.plannedData = dataRespository.getPlannedInspections(date: date)
+    print(self.plannedData)
+  }
+
+  func showDefaultInspections() {
+    if dates.count > 0 {
+      showInspectionsByDate(by: dates[0].date)
+    }
+  }
+}

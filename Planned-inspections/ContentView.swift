@@ -11,19 +11,24 @@ struct ContentView: View {
   @StateObject var viewModel: PlannedInspetionsViewModel = PlannedInspetionsViewModel()
   @State var data: String = ""
   var body: some View {
-    VStack{
+    VStack {
       Text("Planned inspections")
         .font(.title2)
-      Button("search") {
-        viewModel.fetchData()
+      ScrollDatePickerView(viewModel: viewModel)
+
+      if viewModel.plannedData.subTitle == "0 inspection" {
+        Spacer()
+        Text("Looks like this day's completely free!")
+        Spacer()
+      } else {
+        InspectionView(data: viewModel.plannedData)
+          .padding()
       }
-      VStack {
-        if viewModel.errorMessage != "" {
-          Text(viewModel.errorMessage)
-        } else {
-          Text (viewModel.data?.data.planner.dates.first?.date.value ?? "Date")
-        }
-      }
+      Spacer()
+    }
+    .edgesIgnoringSafeArea(.bottom)
+    .onAppear {
+      viewModel.fetchData()
     }
   }
 }
