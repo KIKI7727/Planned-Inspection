@@ -20,7 +20,9 @@
 		8A7855CC29F7D55E00D7E8AD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */; };
 		8A7855D629FB923A00D7E8AD /* DatePickerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855D529FB923A00D7E8AD /* DatePickerCellView.swift */; };
 		8A7855D829FB926100D7E8AD /* ScrollDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855D729FB926100D7E8AD /* ScrollDatePickerView.swift */; };
-		8A7855DB29FB957200D7E8AD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855DA29FB957200D7E8AD /* Repository.swift */; };
+		8A7855DB29FB957200D7E8AD /* PlannedInspectionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7855DA29FB957200D7E8AD /* PlannedInspectionsRepository.swift */; };
+		8AD78BF72A0B631000E225D4 /* PlannedInspetionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD78BF62A0B631000E225D4 /* PlannedInspetionsViewModelTests.swift */; };
+		8AD78BFB2A0B7A0300E225D4 /* MockPlannedInspectionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD78BF82A0B67B700E225D4 /* MockPlannedInspectionsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +51,9 @@
 		8A7855CB29F7D55E00D7E8AD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8A7855D529FB923A00D7E8AD /* DatePickerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCellView.swift; sourceTree = "<group>"; };
 		8A7855D729FB926100D7E8AD /* ScrollDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDatePickerView.swift; sourceTree = "<group>"; };
-		8A7855DA29FB957200D7E8AD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		8A7855DA29FB957200D7E8AD /* PlannedInspectionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedInspectionsRepository.swift; sourceTree = "<group>"; };
+		8AD78BF62A0B631000E225D4 /* PlannedInspetionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedInspetionsViewModelTests.swift; sourceTree = "<group>"; };
+		8AD78BF82A0B67B700E225D4 /* MockPlannedInspectionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlannedInspectionsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				8A7855A429F768A300D7E8AD /* Planned_inspectionsTests.swift */,
+				8AD78BF62A0B631000E225D4 /* PlannedInspetionsViewModelTests.swift */,
+				8AD78BF82A0B67B700E225D4 /* MockPlannedInspectionsRepository.swift */,
 			);
 			path = "Planned-inspectionsTests";
 			sourceTree = "<group>";
@@ -182,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				8A508F642A089F8900EC6454 /* Model */,
-				8A7855DA29FB957200D7E8AD /* Repository.swift */,
+				8A7855DA29FB957200D7E8AD /* PlannedInspectionsRepository.swift */,
 				8A508F682A08CACF00EC6454 /* PlannedInspection+Converter.swift */,
 			);
 			path = Domain;
@@ -292,7 +298,7 @@
 				8A7855D829FB926100D7E8AD /* ScrollDatePickerView.swift in Sources */,
 				8A7855D629FB923A00D7E8AD /* DatePickerCellView.swift in Sources */,
 				8A7855CC29F7D55E00D7E8AD /* NetworkService.swift in Sources */,
-				8A7855DB29FB957200D7E8AD /* Repository.swift in Sources */,
+				8A7855DB29FB957200D7E8AD /* PlannedInspectionsRepository.swift in Sources */,
 				8A7855C829F7C1F100D7E8AD /* PlannedInspetion.swift in Sources */,
 				8A78559629F768A100D7E8AD /* ContentView.swift in Sources */,
 				8A7855C529F7AA3600D7E8AD /* PlannedInspetionsViewModel.swift in Sources */,
@@ -307,6 +313,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7855A529F768A300D7E8AD /* Planned_inspectionsTests.swift in Sources */,
+				8AD78BFB2A0B7A0300E225D4 /* MockPlannedInspectionsRepository.swift in Sources */,
+				8AD78BF72A0B631000E225D4 /* PlannedInspetionsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

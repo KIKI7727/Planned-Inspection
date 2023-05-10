@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct PlannedInspetion: Codable {
   let data: DataClass
 }
