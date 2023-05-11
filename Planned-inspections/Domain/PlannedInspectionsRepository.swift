@@ -52,13 +52,13 @@ class PlannedInspectionsRespository: PlannedInspectionsRepositoryProtocol {
     return cache[date]
   }
 
+  // 替代循环的高阶函数
   private func convertToDictionary(by data: PlannedInspetion) {
     for date in data.data.planner.dates {
       cache.updateValue(convert(date), forKey: date.date.display.longDate)
     }
   }
 
-  // 替代循环的高阶函数
   private func convert(_ data: DateElement) -> PlannedInspections {
     let inspectionCount = data.times.reduce(0) {
       if $1.entries.count != 2 {

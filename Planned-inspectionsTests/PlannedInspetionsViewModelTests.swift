@@ -70,19 +70,63 @@ final class PlannedinspectionsViewModelTests: XCTestCase {
 
   func test_GIVEN_PlannedInpectionsIsAvailable_WHEN_fetchData_THEN_PlannedInpectionsShouldBeUsed() {
     // Given
+    plannedInspectionsRepository.isSuccess = true
+    plannedInspectionsRepository.plannedInspectionsContent = PlannedInspectionsContent(
+      dates: [
+        DaysModel(date: "Tuesday 25 April", dayofWeek: "Tue", dayofMonth: "25", planned: false),
+        DaysModel(date: "Wednesday 26 April", dayofWeek: "Tue", dayofMonth: "26", planned: true),
+        DaysModel(date: "Friday 28 April", dayofWeek: "Fri", dayofMonth: "27", planned: true),
+      ],
+      plannedInspections: [
+        PlannedInspections(title: "title1", subTitle: "subTitle1", plannedCard: [
+          PlannedCardInfo(timeslot: "10:00 am-4:00 pm", inspection: [
+            InspectionInfo(title: "title 1", address: "address 1", imageURL: "url 1", bathrooms: 1, bedrooms: 2, parkingSpaces: 3),
+            InspectionInfo(title: "title 2", address: "address 2", imageURL: "url 2", bathrooms: 3, bedrooms: 2, parkingSpaces: 1),
+          ]),
+        ]),
+      ],
+      noEventTips: "no Event Tips."
+    )
+
+    // WHEN
     model.fetchData()
 
-    XCTAssertEqual(model.noEventTips, "123")
-    // when
-    // model.fetchData()
     // THEN
+    XCTAssertEqual(model.dates.count, 3)
+    XCTAssertEqual(model.dates[0].date, "Tuesday 25 April")
+    XCTAssertEqual(model.dates[0].dayofWeek, "Tue")
+    XCTAssertEqual(model.dates[0].dayofMonth, "25")
+
+    XCTAssertEqual(model.plannedInspections.count, 1)
+    XCTAssertEqual(model.plannedInspections[0].plannedCard.count, 1)
+    XCTAssertEqual(model.plannedInspections[0].title, "title1")
+    XCTAssertEqual(model.plannedInspections[0].plannedCard[0].inspection.count, 2)
+    XCTAssertEqual(model.plannedInspections[0].plannedCard[0].inspection[0].imageURL, "url 1")
+
+    XCTAssertEqual(model.noEventTips, "no Event Tips.")
+
+    // When
+    model.fetchData()
+
+    // Then
+    XCTAssertEqual(model.dates.count, 3)
+    XCTAssertEqual(model.dates[0].date, "Tuesday 25 April")
+    XCTAssertEqual(model.dates[0].dayofWeek, "Tue")
+    XCTAssertEqual(model.dates[0].dayofMonth, "25")
+
+    XCTAssertEqual(model.plannedInspections.count, 1)
+    XCTAssertEqual(model.plannedInspections[0].plannedCard.count, 1)
+    XCTAssertEqual(model.plannedInspections[0].title, "title1")
+    XCTAssertEqual(model.plannedInspections[0].plannedCard[0].inspection.count, 2)
+    XCTAssertEqual(model.plannedInspections[0].plannedCard[0].inspection[0].imageURL, "url 1")
   }
 
   func test_GIVEN_PlannedInpectionsIsNotAvailable_WHEN_fetchData_THEN_PlannedInpectionsShouldBeFailed() {
+    // Given
     plannedInspectionsRepository.isSuccess = false
-
+    // When
     model.fetchData()
-
+    // Then
     XCTAssertEqual(model.errorMessage, "解码错误")
   }
 }

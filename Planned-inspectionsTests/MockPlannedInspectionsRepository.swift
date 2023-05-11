@@ -11,10 +11,11 @@ import XCTest
 
 class MockPlannedInspectionsRepository: PlannedInspectionsRepositoryProtocol {
   var isSuccess = true
+  var plannedInspectionsContent: PlannedInspectionsContent = PlannedInspectionsContent(dates: [], plannedInspections: [], noEventTips: "")
 
   func getPlannedInspections() -> AnyPublisher<PlannedInspectionsContent, NetworkError> {
     if isSuccess {
-      return Just(PlannedInspectionsContent(dates: [], plannedInspections: [], noEventTips: "123"))
+      return Just(plannedInspectionsContent)
         .setFailureType(to: NetworkError.self)
         .eraseToAnyPublisher()
     } else {
@@ -22,6 +23,20 @@ class MockPlannedInspectionsRepository: PlannedInspectionsRepositoryProtocol {
         .eraseToAnyPublisher()
     }
   }
+
+//
+//  var isSuccess = true
+//
+//  func getPlannedInspections() -> AnyPublisher<PlannedInspectionsContent, NetworkError> {
+//    if isSuccess {
+//      return Just(PlannedInspectionsContent(dates: [], plannedInspections: [], noEventTips: "123"))
+//        .setFailureType(to: NetworkError.self)
+//        .eraseToAnyPublisher()
+//    } else {
+//      return Fail(error: NetworkError.badDecode)
+//        .eraseToAnyPublisher()
+//    }
+//  }
 
   func getPlannedInspections(date: String) -> PlannedInspections? {
     if date != "26" { return nil }
