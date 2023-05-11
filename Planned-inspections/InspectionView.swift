@@ -28,6 +28,7 @@ struct InspectionView: View {
         }
       }
       .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(5)
     }
   }
 }
@@ -43,22 +44,31 @@ struct InspectionCardView: View {
           Text(card.address).lineLimit(2)
 
           HStack {
-            Image(systemName: "bed.double")
-            Text("\(card.bedrooms)")
-
+            if card.bedrooms != 0 {
+              Image(systemName: "bed.double")
+              Text("\(card.bedrooms)")
+            }
             Image(systemName: "bathtub")
             Text("\(card.bathrooms)")
-
-            Image(systemName: "parkingsign.circle")
-            Text("\(card.parkingSpaces)")
+            if card.parkingSpaces != 0 {
+              Image(systemName: "parkingsign.circle")
+              Text("\(card.parkingSpaces)")
+            }
           }
         }
 
-        Image(systemName: "photo.on.rectangle.angled")
-          .resizable()
-          .frame(width: 100, height: 80)
+        AsyncImage(url: URL(string: card.imageURL), content: { phase in
+          if let image = phase.image {
+            image
+              .resizable()
+              .frame(width: 100, height: 80)
+          } else {
+            Image(systemName: "photo.on.rectangle.angled")
+              .resizable()
+              .frame(width: 100, height: 80)
+          }
+        })
       }
-
       Divider()
       Button {} label: {
         HStack {
@@ -74,7 +84,7 @@ struct InspectionCardView: View {
     .background(
       Color.white
         .cornerRadius(8)
-        .shadow(color: .gray.opacity(0.5), radius: 2, x: 2, y: 2))
+        .shadow(color: .gray.opacity(0.5), radius: 2, x: 0, y: 0))
   }
 }
 

@@ -28,6 +28,7 @@ struct PlannedCardInfo {
 struct InspectionInfo: Hashable {
   let title: String
   let address: String
+  let imageURL: String
   let bathrooms: Int
   let bedrooms: Int
   let parkingSpaces: Int
@@ -36,4 +37,5 @@ struct InspectionInfo: Hashable {
 struct PlannedInspectionsContent {
   let dates: [DaysModel]
   let plannedInspections: [PlannedInspections]
+  let noEventTips: String
 }
