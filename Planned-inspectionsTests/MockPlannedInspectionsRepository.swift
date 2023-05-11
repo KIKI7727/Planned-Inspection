@@ -24,20 +24,6 @@ class MockPlannedInspectionsRepository: PlannedInspectionsRepositoryProtocol {
     }
   }
 
-//
-//  var isSuccess = true
-//
-//  func getPlannedInspections() -> AnyPublisher<PlannedInspectionsContent, NetworkError> {
-//    if isSuccess {
-//      return Just(PlannedInspectionsContent(dates: [], plannedInspections: [], noEventTips: "123"))
-//        .setFailureType(to: NetworkError.self)
-//        .eraseToAnyPublisher()
-//    } else {
-//      return Fail(error: NetworkError.badDecode)
-//        .eraseToAnyPublisher()
-//    }
-//  }
-
   func getPlannedInspections(date: String) -> PlannedInspections? {
     if date != "26" { return nil }
 
